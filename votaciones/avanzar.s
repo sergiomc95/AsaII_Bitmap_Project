@@ -4,6 +4,7 @@
 	# SUBRUTINA AVANZAR
 	# Movemos el puntero hasta el inicio de la siguiente fila
 	# Recibe por a0 la puntuacion
+	# Recibe por a2 el puntero
 	
 	.globl avanzar
 	
@@ -25,7 +26,7 @@ bucle_avanzar:
 
 	beq t1, t2, fin_avanzar
 	
-	addi s0,s0,4
+	addi a2,a2,4
 	
 	addi t1, t1, 1
 	

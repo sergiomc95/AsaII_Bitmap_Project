@@ -28,10 +28,10 @@ msg4:   .string "VOTOS DE VOX: \n"
 
 setup: 
 	
-	la s0,data	#Puntero inicial
+	
 	
 	li s1,RED	#COLOR partido 1
-	li s2, BLUE   #COLOR partido 2
+	li s2, BLUE     #COLOR partido 2
 	li s3, MAGENTA	#COLOR partido 3
 	li s4, GREEN	#COLOR partido 4
 		
@@ -44,9 +44,10 @@ setup:
 	li a7, READ_INT
 	ecall
 	
+	la a2, data
 	
+	mv a1, s1 	# Le paso el color del partido 1
 	
-	mv a1, s1 # Le paso el color del partido 1
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
 	
@@ -62,7 +63,9 @@ setup:
 	li a7, READ_INT
 	ecall
 	
-	mv a1, s2 # Le paso el color del partido 2
+	
+	mv a1, s2	# Le paso el color del partido 2
+	
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
 	
@@ -80,7 +83,9 @@ setup:
 	ecall
 	
 	
-	mv a1, s3 # Le paso el color del partido 3
+	
+	mv a1, s3 	# Le paso el color del partido 3
+	
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
 	
@@ -97,7 +102,9 @@ setup:
 	ecall
 	
 	
-	mv a1, s4 # Le paso el color del partido 4
+	
+	mv a1, s4	# Le paso el color del partido 4
+	
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
 	

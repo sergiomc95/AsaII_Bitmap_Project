@@ -17,9 +17,6 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 
 .text
 
-
-	la s0,data	#Puntero inicial
-	li s1,RED	#COLOR del Rectangulo
 		
 	
 	la a0, msg1
@@ -38,31 +35,36 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 	li a7, READ_INT	# Introducimos la altura por teclado (1-8)
 	ecall
 	
-	li s5, 1
+	li t0, 2	#Le restamos las dos bases
+
 	
-	sub s3, a0, s5	# s3 tiene la altura
+	sub a3, a0, t0	# a3 tiene la altura
 	
 	
-	mv a0, s2
+	mv a2, s2	# a2 Contiene el ancho del rectangulo
+	
+	li a1,RED	#COLOR del Rectangulo
+	la a0,data	#Puntero inicial
+	
 	jal pintar_base
 	
 	li s8, 0
 	
 	bucle_rectangulo:
 	
-	beq s8, s3, fin_bucle1
+	beq s8, a3, fin_bucle1
 	
 	
 	jal avanzar_fila
 	
 	
-	sw s1, 0(s0)
+	sw a1, 0(a0)
 	
 	jal avanzar_extremo
 	
-	sw s1, 0(s0)
+	sw a1, 0(a0)
 	
-	addi s0,s0,4
+	addi a0,a0,4
 	addi s8, s8, 1
 		
 	b bucle_rectangulo
@@ -71,6 +73,7 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 fin_bucle1:
 
 	jal avanzar_fila
+	
 	jal pintar_base
 
 
