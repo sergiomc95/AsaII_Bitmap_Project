@@ -1,49 +1,36 @@
-
-
-	# ESTE PROGRAMA PINTA EL NUMERO DE BLOQUES SOLICITADOS (128 PIXELES)
+	# ESTE PROGRAMA PINTA EL NUMERO DE PIXELES SOLICITADOS (1-128 PIXELES)
 .data 
 
 data:	.word 0x1001000    #PUNTO DE INICIO (0,0)
 
-msg1:   .string "Introduzca el numero de bloques a pintar:"
+msg1:   .string "Introduzca el numero de pixeles a pintar (1-128):\n"
 
-.eqv	RED   0x00FF0000
 .eqv	GREEN   0x0000FF00
-.eqv	BLUE   0x000000FF
-.eqv	WHITE   0x00FFFFFF
-.eqv	YELLOW   0x00FFFF00
-.eqv	CYAN   0x0000FFFF
-.eqv	MAGENTA   0x00FF00FF
-
 .eqv    READ_INT 5
 .eqv	PRINT_STRING 4
 .eqv 	EXIT 10
 
 .text
-
-
-setup: 
-	la s0,data
-	
-	li s1,YELLOW	#asignar color
-		
-		
+	li a1,GREEN	#asignar color
+			
 	la a0, msg1
-	li a7, PRINT_STRING
+	li a7, PRINT_STRING	#Mensaje
 	ecall
 		
-	li a7, READ_INT
+	li a7, READ_INT		# Numero introducido por el usuario
 	ecall
-	mv s2, a0
 	
+	mv s2, a0	#Tenemos en s2 el numero de pixeles introducidos
 	
-	li t1, 0
+	la a0,data	# Puntero inicial
+	li t1, 0	# Contador
+	
 bucle_pintar:	
 	beq s2, t1, fin
 	
-	sw s1, 0(s0)	# pinta el primer cuadrado
+	sw a1, 0(a0)	# pinta el primer cuadrado
 
-	addi s0,s0,4
+	addi a0,a0,4	# Avanzamos la posicion
 	
 	addi t1, t1, 1
 	
