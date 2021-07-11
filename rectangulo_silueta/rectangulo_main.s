@@ -1,6 +1,6 @@
 
 
-# Este programa dibuja un Rectangulo especificando tamaño en pixeles de Base y Alture
+# Este programa dibuja un Rectangulo especificando tamaño en pixeles de Base y Altura
 .data 
 
 data:	.word 0x1001000    #PUNTO DE INICIO (0,0)
@@ -17,8 +17,6 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 
 .text
 
-		
-	
 	la a0, msg1
 	li a7, PRINT_STRING
 	ecall
@@ -37,33 +35,24 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 	
 	li t0, 2	#Le restamos las dos bases
 
-	
 	sub a3, a0, t0	# a3 tiene la altura
-	
 	
 	mv a2, s2	# a2 Contiene el ancho del rectangulo
 	
 	li a1,RED	#COLOR del Rectangulo
 	la a0,data	#Puntero inicial
 	
-	jal pintar_base
+	jal pintar_base	# Pintamos la base superior del rectangulo
 	
 	li s8, 0
 	
 	bucle_rectangulo:
 	
 	beq s8, a3, fin_bucle1
-	
-	
 	jal avanzar_fila
-	
-	
 	sw a1, 0(a0)
-	
 	jal avanzar_extremo
-	
 	sw a1, 0(a0)
-	
 	addi a0,a0,4
 	addi s8, s8, 1
 		
@@ -74,7 +63,7 @@ fin_bucle1:
 
 	jal avanzar_fila
 	
-	jal pintar_base
+	jal pintar_base 	# Pintamos la base inferior del rectangulo
 
 
 

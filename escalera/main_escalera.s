@@ -42,11 +42,11 @@ msg2:   .string "Introduzca la altura de la escalera:\n"
 	li a1,RED	#COLOR del escalon
 	la a0,data	#Puntero inicial
 	
-	li s8, 0
+	li t3, 0
 	
 	bucle_pintar:
 	
-	beq s8, a3, fin
+	beq t3, a3, fin
 	
 	jal pintar
 	
@@ -54,7 +54,7 @@ msg2:   .string "Introduzca la altura de la escalera:\n"
 	jal avanzar_fila
 	
 	addi a0,a0,4
-	addi s8, s8, 1
+	addi t3, t3, 1
 	
 	b bucle_pintar
 	

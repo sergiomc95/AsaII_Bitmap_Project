@@ -6,14 +6,11 @@
 	# Recibe por a2 el ancho (base) del rectangulo
 	
 	.globl pintar_base
-
 	.text
 	
-
 pintar_base:
 
-	li t1, 0
-	
+	li t1, 0	
 bucle_pintar:	
 
 	beq a2, t1, salir
@@ -26,7 +23,6 @@ bucle_pintar:
 	
 	b bucle_pintar
 	
-
 salir:
 
 ret

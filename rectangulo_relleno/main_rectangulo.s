@@ -1,4 +1,3 @@
-
 # Este programa dibuja un Rectangulo relleno de color, especificando tamaño en pixeles de Base y Altura
 .data 
 
@@ -14,9 +13,7 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 
 .eqv	MAX 16
 
-.text
-
-		
+.text	
 	
 	la a0, msg1
 	li a7, PRINT_STRING
@@ -42,11 +39,11 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 	li a1,RED	#COLOR del Rectangulo
 	la a0,data	#Puntero inicial
 	
-	li s8, 0
+	li t3, 0
 	
 	bucle_pintar:
 	
-	beq s8, a3, fin
+	beq t3, a3, fin
 	
 	jal pintar
 	
@@ -55,10 +52,9 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 	jal avanzar_fila
 	
 	addi a0,a0,4
-	addi s8, s8, 1
+	addi t3, t3, 1
 	
 	b bucle_pintar
-	
 	
 	
 fin:	

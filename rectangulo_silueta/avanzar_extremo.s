@@ -1,8 +1,8 @@
 
 	# SUBRUTINA AVANZAR
 	# Movemos el puntero hasta el extremo derecho del rectangulo
+	# Recibe por a0 el puntero con la direccion actual
 	# Recibe por a2 la base del rectangulo
-	
 	.globl avanzar_extremo
 	
 	.data
@@ -10,9 +10,7 @@
 	.eqv  	MAX 16
 	.text
 	
-	#mv t3, a2
 avanzar_extremo:
-
 
 	li t1, 0
 	li t2, 1
@@ -27,5 +25,4 @@ bucle:
 	
 fin_bucle:
 
-#mv a2, t3
 ret

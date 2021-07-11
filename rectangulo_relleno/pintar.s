@@ -11,7 +11,6 @@
 
 	.text
 	
-
 pintar:
 
 	li t1, 0
@@ -28,7 +27,6 @@ bucle_pintar:
 	
 	b bucle_pintar
 	
-
 salir:
 
 ret
