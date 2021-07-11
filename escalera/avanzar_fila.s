@@ -4,7 +4,7 @@
 	# Movemos el puntero hasta el inicio de la siguiente fila
 	
 	#Recibe por a0 la direccion actual
-	# Recibe por a2 la longitud del escalon
+	# Recibe por a2 el ancho (base) del rectangulo
 	
 	.globl avanzar_fila
 	
@@ -20,7 +20,7 @@ avanzar_fila:
 	li, t0, MAX
 
 	
-	sub t2, t0, a2	#Resto el MAX (16) menos el ancho del escalon
+	sub t2, t0, a2	#Resto el MAX (16) menos la base
 
 	
 bucle_avanzar:

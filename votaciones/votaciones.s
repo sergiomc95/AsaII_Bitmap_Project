@@ -37,24 +37,32 @@ msg4:   .string "VOTOS DE VOX: \n"
 	li a7, READ_INT	# Leeamos la puntuacion de primer partido en a0
 	ecall
 	
-	la a2, data
+
 	
-	mv a1, s1 	# Le paso el color del partido 1
+	mv a2, s1 	# Le paso el color del partido 1
+	mv a1, a0	# a1 tiene la votacion
+	
+	la a0, data
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
 	
 	jal avanzar	# Movemos el puntero hasta el inicio de la siguiente columna
 
-	# Partido 2
 	
+	# Partido 2
+	mv s0, a0
+		
 	la a0, msg2
 	li a7, PRINT_STRING
 	ecall
 		
-	li a7, READ_INT
+	li a7, READ_INT	# Leeamos la puntuacion de primer partido en a0
 	ecall
 	
-	mv a1, s2	# Le paso el color del partido 2
+	
+	mv a2, s2 	# Le paso el color del partido 2
+	mv a1, a0
+	mv a0, s0
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
 	
@@ -63,29 +71,38 @@ msg4:   .string "VOTOS DE VOX: \n"
 	
 		# Partido 3
 		
+	mv s0, a0
+	
 	la a0, msg3
 	li a7, PRINT_STRING
 	ecall
 		
-	li a7, READ_INT
+	li a7, READ_INT	# Leeamos la puntuacion de primer partido en a0
 	ecall
 	
-	mv a1, s3 	# Le paso el color del partido 3
+	
+	mv a2, s3	# Le paso el color del partido 3
+	mv a1, a0
+	mv a0, s0
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
-
+	
 	jal avanzar	# Movemos el puntero hasta el inicio de la siguiente columna
 	
 		# Partido 4
 	
+	mv s0, a0	
 	la a0, msg4
 	li a7, PRINT_STRING
 	ecall
 		
-	li a7, READ_INT
+	li a7, READ_INT	# Leeamos la puntuacion de primer partido en a0
 	ecall
 	
-	mv a1, s4	# Le paso el color del partido 4
+	
+	mv a2, s4	# Le paso el color del partido 4
+	mv a1, a0
+	mv a0, s0
 	
 	jal pintar	# Llamamos a pintar para pintar el resultado
 	

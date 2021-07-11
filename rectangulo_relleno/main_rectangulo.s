@@ -40,18 +40,19 @@ msg2:   .string "Introduzca la altura del rectangulo:\n"
 	la a0,data	#Puntero inicial
 	
 	li t3, 0
-	
+	mv s0, a0
 	bucle_pintar:
 	
 	beq t3, a3, fin
-	
+	mv a0, s0
 	jal pintar
-	
-	addi a0, a0, -4
-	
+	mv s0, a0
+	addi s0, s0, -4
+	mv a0, s0
 	jal avanzar_fila
 	
-	addi a0,a0,4
+	mv s0, a0
+	addi s0,s0,4
 	addi t3, t3, 1
 	
 	b bucle_pintar

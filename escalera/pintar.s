@@ -5,13 +5,12 @@
 
 	#Recibe por a0 la direccion actual
 	#Recibe por a1 el color
-	# Recibe por a2 la longitud del escalon
+	# Recibe por a2 el ancho (base) del rectangulo
 	
 	.globl pintar
 
 	.text
 	
-
 pintar:
 
 	li t1, 0
@@ -28,7 +27,6 @@ bucle_pintar:
 	
 	b bucle_pintar
 	
-
 salir:
 
 ret

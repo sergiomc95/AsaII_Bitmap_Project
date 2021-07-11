@@ -10,7 +10,8 @@
 	
 pintar_base:
 
-	li t1, 0	
+	li t1, 0
+		
 bucle_pintar:	
 
 	beq a2, t1, salir
